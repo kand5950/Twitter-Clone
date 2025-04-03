@@ -103,6 +103,15 @@ app.post("/login", (req, res) => {
     }
 })
 
+app.get("/profile", (req, res) => {
+    const user = users.find((u) => u.id === req.session.user.id)
+
+    res.render("profile", {
+        title: "Profile",
+        error: null,
+    })
+})
+
 
 // Start Server
 const PORT = process.env.PORT || 3000;
