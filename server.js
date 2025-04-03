@@ -117,7 +117,7 @@ app.post("/tweet", requireLogin, (req, res) => {
     const user = users.find((u) => u.id === req.session.user.id);
 
     const tweetContent = req.body.tweet.trim();
-
+    
     let error = null;
 
     if(tweetContent.length === 0) {
