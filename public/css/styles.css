@@ -1,0 +1,244 @@
+/* Global Styles */
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #e6ecf0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: #1da1f2;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Content Wrapper */
+  .content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  /* Header */
+  header {
+    background-color: #1da1f2;
+    color: #ffffff;
+    padding: 10px 0; /* Remove horizontal padding to align with content width */
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  header nav a {
+    color: #ffffff;
+    margin-left: 20px;
+    font-weight: normal;
+    font-size: 16px;
+  }
+  
+  header nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Main Content */
+  .main-content {
+    display: flex;
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .content {
+    flex: 3;
+    padding: 20px;
+    background-color: #ffffff;
+    height: calc(100vh - 80px);
+  }
+  
+  .sidebar {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f8fa;
+    border-left: 1px solid #e1e8ed;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e1e8ed;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: #657786;
+    font-size: 12px;
+  }
+  
+  /* Typography */
+  h2 {
+    font-size: 24px;
+    color: #14171a;
+    margin-bottom: 15px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    color: #14171a;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #14171a;
+  }
+  
+  /* Tweets */
+  .tweet {
+    padding: 15px;
+    border-bottom: 1px solid #e1e8ed;
+  }
+  
+  .tweet:last-child {
+    border-bottom: none;
+  }
+  
+  .tweet p {
+    margin: 0;
+    font-size: 16px;
+    color: #14171a;
+  }
+  
+  .tweet small {
+    color: #657786;
+  }
+  
+  /* Forms */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #657786;
+    font-size: 14px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aab8c2;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-color: #1da1f2;
+    outline: none;
+  }
+  
+  button {
+    background-color: #1da1f2;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #1991da;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Error Messages */
+  .error {
+    color: #e0245e;
+    margin-bottom: 15px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    /* Adjust navigation for mobile */
+    nav {
+      text-align: center;
+    }
+  
+    nav a {
+      display: block;
+      margin: 10px 0;
+    }
+  
+    /* Stack content and sidebar on mobile */
+    .main-content {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      border-left: none;
+      border-top: 1px solid #e1e8ed;
+    }
+  }
+  
+  /* Fixed Sidebar on Desktop */
+  @media (min-width: 992px) {
+    .main-content {
+      align-items: flex-start;
+      height: calc(100vh - 80px);
+    }
+  
+    .sidebar {
+      position: sticky;
+      top: 80px; /* Adjust based on header and nav height */
+      height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+  }
+  
+  /* Hover Effects for Tweets */
+  .tweet:hover {
+    background-color: #f5f8fa;
+  }
+  
+  /* Form Input Focus Effect */
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-color: #1da1f2;
+    outline: none;
+  }
+  
+  /* Adjust navigation alignment */
+  nav {
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    nav {
+      text-align: left;
+      padding-left: 20px;
+    }
+  }
+  
