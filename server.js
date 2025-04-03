@@ -77,8 +77,35 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
 
+app.get("/login", (req, res) => {
+    res.render("login", { error: null, title: "Login"});
+});
+
+app.post("/login", (req, res) => {
+    const { username, password } = req.body;
+
+    const user = users.find(
+        (u) => u.username === username && u.password === password
+    );
+
+    if (user) {
+        //set session
+        req.session.user = {
+            id: user.id,
+            username: user.username,
+        };
+        res.redirect("/profile");
+    } else {
+        res.render("login", {
+            error: "Invalid username or password",
+            title: "Login",
+        });
+    }
+})
+
+
 // Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server started at https://localhost:${PORT}`);
+  console.log(`Server started at localhost:${PORT}`);
 });
