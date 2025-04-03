@@ -72,9 +72,13 @@ function requireLogin(req, res, next) {
 
 // Routes
 
+// Home Page
+app.get("/", (req, res) => {
+  res.render("index", { title: "Home" });
+});
 
 // Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
+  console.log(`Server started at https://localhost:${PORT}`);
 });
