@@ -139,6 +139,11 @@ app.post("/tweet", requireLogin, (req, res) => {
     }
 })
 
+app.get("/logout", (req, res) => {
+    req.session.reset(); // Clears the session
+    res.redirect("/login"); // Redirects to login page
+});
+
 // Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
