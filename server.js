@@ -104,13 +104,39 @@ app.post("/login", (req, res) => {
 })
 
 app.get("/profile", (req, res) => {
-    const user = users.find((u) => u.id === req.session.user.id)
+    const user = users.find((u) => u.id === req.session.user.id);
 
     res.render("profile", {
         user,
         title: "Profile",
         error: null,
     })
+})
+
+app.post("/tweet", requireLogin, (req, res) => {
+    const user = users.find((u) => u.id === req.session.user.id);
+
+    const tweetContent = req.body.tweet.trim();
+
+    let error = null;
+
+    if(tweetContent.length === 0) {
+        error = "Tweet cannot be empty";
+    } else if (tweetContent.length > 200) {
+        error = "Tweet cannot exceed 260 characters";
+    } else {
+        const tweet = {
+            content: tweetContent,
+            timestamp: new Date(),
+        };
+        user.tweets.push(tweet);
+    }
+
+    if (error) {
+        res.render("profile", { user, error, title: "Profile"});
+    } else {
+        res.redirect("profile");
+    }
 })
 
 // Start Server
