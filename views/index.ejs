@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+  <div class="content">
+    <h2>Welcome to Simple Twitter Clone</h2>
+    <p>This is a simple clone of Twitter built with Express.js and EJS.</p>
+  </div>
+  <div class="sidebar">
+    <% if (user) { %>
+      <h3>Welcome back, <%= user.username %>!</h3>
+    <% } else { %>
+      <h3>About</h3>
+      <p>Login to start tweeting!</p>
+    <% } %>
+  </div>
+<%- include('partials/footer') %>

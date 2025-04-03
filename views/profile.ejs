@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+  <div class="content">
+    <h2>Your Profile</h2>
+    <h3>@<%= user.username %></h3>
+
+    <!-- Tweet Composer Form -->
+    <h2>Compose a new Tweet</h2>
+    <% if (error) { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+    <form action="/tweet" method="POST">
+      <div class="form-group">
+        <label for="tweet">What's happening?</label>
+        <input type="text" name="tweet" id="tweet" maxlength="280" required>
+      </div>
+      <button type="submit">Tweet</button>
+    </form>
+
+    <!-- Display Tweets -->
+    <h2>Your Tweets</h2>
+    <% if (user.tweets && user.tweets.length > 0) { %>
+      <% user.tweets.forEach(function(tweet) { %>
+        <div class="tweet">
+          <p><%= tweet.content %></p>
+          <small><%= tweet.timestamp.toLocaleString() %></small>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>You haven't posted any tweets yet.</p>
+    <% } %>
+  </div>
+  <div class="sidebar">
+    <h3>Your Info</h3>
+    <p><strong>Username:</strong> <%= user.username %></p>
+    <!-- Additional user info can be added here -->
+  </div>
+<%- include('partials/footer') %>
