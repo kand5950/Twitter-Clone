@@ -19,7 +19,7 @@
     <!-- Display Tweets -->
     <h2>Your Tweets</h2>
     <% if (user.tweets && user.tweets.length > 0) { %>
-      <% user.tweets.forEach(function(tweet) { %>
+      <% user.tweets.slice().reverse().forEach(function(tweet) { %>
         <div class="tweet">
           <p><%= tweet.content %></p>
           <small><%= tweet.timestamp.toLocaleString() %></small>
